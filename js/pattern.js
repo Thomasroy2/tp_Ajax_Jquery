@@ -21,11 +21,11 @@ class Pattern {
     static onColorChange(e){
         let currentRow = $(e.currentTarget).parent('tr') 
         currentRow.nextAll().remove()
-        if ($("td.if-color[value='"+ currentRow.children('td.then-color').children('select').val() +"']").length >= 1) {
+        if ($("td.if-color[value='"+ currentRow.children('td.then-color').children('select').val() +"']").length >= 1 && currentRow.children('td.then-color').children('select').val() != "#FFFFFF") {
             let y = document.createElement('span')
             y.innerHTML = '&#9760; La couleur existe d&eacute;j&agrave; &#9760;'
             alert(y.innerHTML)
-        } else {
+        } else if (currentRow.children('td.then-color').children('select').val() != "#FFFFFF")  {
             let step = {
                 if: currentRow.children('.then-color').children('select').val()
             }
